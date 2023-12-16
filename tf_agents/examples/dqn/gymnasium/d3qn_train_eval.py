@@ -31,9 +31,8 @@ from absl import app
 from absl import flags
 from absl import logging
 import gin
-import math
 import reverb
-import tensorflow.compat.v2 as tf
+import tensorflow as tf
 from tf_agents.agents.dqn import dqn_agent
 from tf_agents.environments import suite_gymnasium as suite_gym
 from tf_agents.metrics import py_metrics
@@ -69,9 +68,6 @@ flags.DEFINE_integer(
     'eval_interval',
     1000,
     'Number of train steps between evaluations. Set to 0 to skip.',
-)
-flags.DEFINE_boolean(
-    'dueling', False, 'Set to True for dueling DQN'
 )
 flags.DEFINE_multi_string('gin_file', None, 'Paths to the gin-config files.')
 flags.DEFINE_multi_string('gin_bindings', None, 'Gin binding parameters.')
